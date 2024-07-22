@@ -1,0 +1,12 @@
+/node_modules
+/slides
+
+.env
+
+.vscode
+.DS_Store
+.idea
+.readme.md
+
+/temp
+/upload
