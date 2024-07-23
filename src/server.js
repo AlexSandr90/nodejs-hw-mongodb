@@ -3,7 +3,7 @@ import pino from 'pino-http';
 import cors from 'cors';
 import { env } from './utils/env.js';
 import { getAllContactsController } from './controllers/contactsController.js';
-import { getAllContacts, getContactById } from './services/contacts.js';
+import { getContactByIdController } from './controllers/сontactByIdController.js';
 
 const PORT = Number(env('PORT', '3000'));
 
@@ -22,6 +22,7 @@ export const setupServer = () => {
   );
 
   app.get('/contacts', getAllContactsController);
+  app.get('/contacts/:contactId', getContactByIdController);
 
   app.use('*', (req, res, next) => {
     res.status(404).json({
