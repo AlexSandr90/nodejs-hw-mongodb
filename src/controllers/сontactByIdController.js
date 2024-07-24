@@ -5,7 +5,7 @@ export const getContactByIdController = async (req, res, next) => {
     const { contactId } = req.params;
     const contact = getContactById(contactId);
 
-    req.status(200).json({
+    res.status(200).json({
       message: `Successfully found contact with id ${contactId}`,
       data: contact,
     });
