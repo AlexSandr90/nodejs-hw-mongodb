@@ -3,7 +3,7 @@ import { getContactById } from '../services/contacts.js';
 export const getContactByIdController = async (req, res, next) => {
   try {
     const { contactId } = req.params;
-    const contact = getContactById(contactId);
+    const contact = await getContactById(contactId);
 
     res.status(200).json({
       message: `Successfully found contact with id ${contactId}`,
