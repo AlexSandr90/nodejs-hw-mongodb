@@ -9,3 +9,31 @@ export const getContactById = async contactId => {
   const contact = await ContactsCollection.findById(contactId);
   return contact;
 };
+
+export const createContact = async contactData => {
+  const contact = await ContactsCollection.create(contactData);
+  return contact;
+};
+
+export const deleteContactById = async contactId => {
+  return await ContactsCollection.findOneAndDelete({ _id: contactId });
+};
+
+export const updateContactById = async (contactId, payload, options = {}) => {
+  const updatedContact = await ContactsCollection.findByIdAndUpdate(
+    { _id: contactId },
+    payload,
+    {
+      new: true,
+      includeResultMetadata: true,
+      ...options,
+    }
+  );
+
+  if (!updatedContact || !updatedContact.value) return null;
+
+  return {
+    contact: updatedContact.value,
+    isNew: Boolean(updatedContact?.lastErrorObject?.upserted),
+  };
+};
