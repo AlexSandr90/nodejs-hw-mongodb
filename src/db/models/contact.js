@@ -14,6 +14,11 @@ const contactsSchema = new Schema(
       type: String,
       required: false,
     },
+    age: {
+      type: Number,
+      required: false,
+      default: 6,
+    },
     isFavourite: {
       type: Boolean,
       default: false,
