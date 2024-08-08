@@ -40,6 +40,7 @@ router.delete(
 router.put(
   '/contacts/:contactId',
   isValidId,
+  validateBody(updateContactSchema),
   ctrlWrapper(upsertContactController)
 );
 
