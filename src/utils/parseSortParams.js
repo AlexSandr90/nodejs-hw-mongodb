@@ -18,6 +18,7 @@ const parseSortBy = sortBy => {
     'contactType',
     'createdAt',
     'updatedAt',
+    'userId',
   ];
 
   if (keysOfContact.includes(sortBy)) {
