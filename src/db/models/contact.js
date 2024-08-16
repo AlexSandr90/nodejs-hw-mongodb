@@ -4,7 +4,7 @@ import { CONTACT_TYPES } from '../../constants/index.js';
 const contactsSchema = new Schema(
   {
     userId: {
-      type: String,
+      type: Schema.Types.ObjectId,
       required: true,
     },
     name: {
