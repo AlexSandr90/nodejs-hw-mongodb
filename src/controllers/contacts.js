@@ -41,8 +41,11 @@ export const getContactByIdController = async (req, res, next) => {
   const contact = await getContactById(contactId, req.user._id);
 
   if (!contact) {
-    next(createHttpError(404, 'Contact not found'));
-    return;
+    return next(createHttpError(404, 'Contact not found'));
+  }
+
+  if (contact.userId.toString() !== req.user._id.toString()) {
+    return next(createHttpError(403, 'Contact not allowed'));
   }
 
   res.status(200).json({
