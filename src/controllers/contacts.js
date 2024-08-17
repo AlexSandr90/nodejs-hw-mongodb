@@ -25,8 +25,7 @@ export const getContactsController = async (req, res, next) => {
   });
 
   if (!contacts) {
-    next(createHttpError(404, 'Failed to get contacts'));
-    return;
+    return next(createHttpError(404, 'Failed to get contacts'));
   }
 
   res.status(200).json({
