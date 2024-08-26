@@ -11,6 +11,7 @@ import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import { validateBody } from '../middlewares/validateBody.js';
 import {
   createContactSchema,
+  patchContactSchema,
   updateContactSchema,
 } from '../validation/contacts.js';
 import { isValidId } from '../middlewares/isValidId.js';
@@ -46,7 +47,7 @@ router.patch(
   '/:contactId',
   isValidId,
   upload.single('photo'),
-  validateBody(updateContactSchema),
+  validateBody(patchContactSchema),
   ctrlWrapper(patchContactsController)
 );
 
