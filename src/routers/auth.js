@@ -3,16 +3,19 @@ import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import {
   loginUserSchema,
   registerUserSchema,
-  requestResetEmailSchema,
   resetPasswordSchema,
+  requestResetEmailSchema,
+  loginWithGoogleOAuthSchema,
 } from '../validation/auth.js';
 import {
   loginUserController,
   logoutUserController,
   registerUserController,
-  requestResetEmailController,
-  refreshUserSessionController,
   resetPasswordController,
+  requestResetEmailController,
+  getGoogleOAuthUrlController,
+  refreshUserSessionController,
+  loginWithGoogleController,
 } from '../controllers/auth.js';
 import { validateBody } from '../middlewares/validateBody.js';
 
@@ -44,6 +47,14 @@ router.post(
   '/reset-pwd',
   validateBody(resetPasswordSchema),
   ctrlWrapper(resetPasswordController)
+);
+
+router.get('/get-oauth-url', ctrlWrapper(getGoogleOAuthUrlController));
+
+router.post(
+  '/confirm-oauth',
+  validateBody(loginWithGoogleOAuthSchema),
+  ctrlWrapper(loginWithGoogleController)
 );
 
 export default router;
