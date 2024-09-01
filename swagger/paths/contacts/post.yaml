@@ -13,7 +13,7 @@ requestBody:
         required:
           - name
           - phoneNumber
-          - contactType
+          - email
         properties:
           name:
             description: "Contact's name"
@@ -23,22 +23,18 @@ requestBody:
             description: "Contact's phone number"
             type: string
             example: '+380000000002'
+          email:
+            description: "Contact's email"
+            type: string
+            example: 'test@example.com'
           contactType:
             description: 'Type of contact'
             type: string
             enum: ['work', 'home', 'personal']
-          email:
-            description: "Contact's email"
-            type: string
-            example: 'ivan5@example.com'
           isFavourite:
             description: 'Whether is contact favourite. Should be true or false'
             type: boolean
             example: false
-          userId:
-            description: "Contact's user id"
-            type: string
-            example: 65e4decdd286b30065d54af9
           photo:
             description: "Contact's photo"
             type: string
