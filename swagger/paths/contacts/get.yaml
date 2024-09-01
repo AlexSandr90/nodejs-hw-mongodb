@@ -27,17 +27,6 @@ parameters:
       type: string
       enum: ['asc', 'desc']
       example: 'asc'
-  - in: query
-    name: filter
-    schema:
-      type: string
-      enum: ['work', 'home', 'personal']
-      example: ''
-  - in: query
-    name: userId
-    schema:
-      type: string
-      example: '213dsgdg23dfgdfg'
 responses:
   '200':
     description: Successfully found contacts!
